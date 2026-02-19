@@ -7,6 +7,7 @@ context('End-to-end - Fluxo Rapido', () => {
         escolher 3 livros
         adicionar a cesta
         retirar 1 livros da cesta
+        confirmas condições
         confirmar emprestimo
     */
 
