@@ -19,14 +19,25 @@ jobs:
         working-directory: hub-de-leitura-integrado
         run: npm install
 
+      - name: Inicializar banco de dados
+        working-directory: hub-de-leitura-integrado
+        run: node scripts/init_db.js
+
+      - name: Rodar setup da aplicação
+        working-directory: hub-de-leitura-integrado
+        run: node setup.js
+
       - name: Subir aplicação em background
         working-directory: hub-de-leitura-integrado
-        run: npm start &
+        run: node src/server.js > /tmp/app.log 2>&1 &
 
       - name: Aguardar aplicação iniciar
         run: |
           echo "Aguardando servidor subir..."
-          sleep 30
+          sleep 20
+          echo "=== LOG DA APLICAÇÃO ==="
+          cat /tmp/app.log
+          echo "========================"
           curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000 || echo "Servidor não respondeu"
 
       - name: Instalar dependências dos testes
