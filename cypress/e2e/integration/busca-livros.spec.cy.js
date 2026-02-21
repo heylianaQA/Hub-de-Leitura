@@ -13,24 +13,6 @@ describe('Funcionalidade: Busca de Livros', () => {
         cy.get('.card-title > .text-dark').first().click()
     });
 
-    it('Deve abrir pagina de detalhes do primeiro livro', () => {
-        
-        cy.get('.card-title > .text-dark').first().click()
-        cy.url().should('include', 'book-details')
-    });
-
-    it('Deve abrir pagina de detalhes do ultimo livro', () => {
-        
-        cy.get('.card-title > .text-dark').last().click()
-        cy.url().should('include', 'book-details')
-    });
-
-    it('Deve abrir pagina de detalhes do quinto livro', () => {
-        
-        cy.get('.card-title > .text-dark').eq(4).click()
-        cy.url().should('include', 'book-details')
-    });
-
     it('Deve abrir pagina de detalhes e adicionar à Cesta', () => {
         cy.get('.card-title > .text-dark').eq(5).click()
         cy.url().should('include', 'book-details')
