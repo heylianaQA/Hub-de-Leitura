@@ -26,14 +26,3 @@ jobs:
 
       - name: Executar testes Cypress
         run: npx cypress run
-
-      - name: Gerar relatório Allure
-        if: always()
-        run: ./node_modules/.bin/allure generate allure-results --clean -o allure-report
-
-      - name: Publicar relatório no GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
