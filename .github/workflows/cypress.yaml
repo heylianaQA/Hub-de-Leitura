@@ -1,4 +1,4 @@
-name: Cypress Tests Continuos Integrantion
+name: Cypress Tests
 
 on: [push, pull_request]
 
@@ -16,15 +16,15 @@ jobs:
           node-version: 22
 
       - name: Instalar dependências da aplicação
-        run: |
-          cd hub-de-leitura-integrado
-          npm install
+        working-directory: hub-de-leitura-integrado
+        run: npm install
 
       - name: Subir aplicação em background
-        run: |
-          cd hub-de-leitura-integrado
-          npm start &
-          sleep 15
+        working-directory: hub-de-leitura-integrado
+        run: npm start &
+
+      - name: Aguardar aplicação iniciar
+        run: sleep 15
 
       - name: Instalar dependências dos testes
         run: npm install
