@@ -24,7 +24,10 @@ jobs:
         run: npm start &
 
       - name: Aguardar aplicação iniciar
-        run: sleep 15
+        run: |
+          echo "Aguardando servidor subir..."
+          sleep 30
+          curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000 || echo "Servidor não respondeu"
 
       - name: Instalar dependências dos testes
         run: npm ci
