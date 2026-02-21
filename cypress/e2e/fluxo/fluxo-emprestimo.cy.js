@@ -7,12 +7,8 @@ context('End-to-end - Usando JS', () => {
     it('Deve fazer todo um fluxo de emprestimo de apenas um livro', () => {
         cy.visit('index.html')
         cy.get('#account-link').click()
-        cy.fixture('user').then((user) => {
-            cy.get('#email').type(user.email)
-            cy.get('#password').type(user.password)
-            cy.get('#login-btn').click()
-            cy.get('.user-info').should('contain', user.name)
-        })
+        cy.get('[href="/register.html"]').click()
+        cy.register()
         cy.get('#update-account-button').click()
         let birthday = faker.date.birthdate().toISOString().split('T')[0]
         cy.get('#birthdate').type(birthday)

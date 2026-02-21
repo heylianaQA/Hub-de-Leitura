@@ -5,10 +5,11 @@
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
-    "allure-commandline": "^2.36.0"
+    "allure-commandline": "^2.36.0",
+    "wait-on": "^9.0.4"
   },
   "scripts": {
-  "cy:run": "cypress run --env allure=true",
-  "allure:report": "allure generate allure-results --clean && allure open"
-}
+    "cy:run": "cypress run --env allure=true",
+    "allure:report": "allure generate allure-results --clean && allure open"
+  }
 }

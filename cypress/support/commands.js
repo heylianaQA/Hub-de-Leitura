@@ -7,12 +7,30 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
+ import {faker} from '@faker-js/faker'
 
-Cypress.Commands.add('login', (email, password) => {
-    cy.get('#email').type('usuario@teste.com')
-    cy.get('#password').type('user123')
-    cy.get('#login-btn').click()
-});
+Cypress.Commands.add('register', () => {
+    const user = {
+        name: faker.person.fullName(),
+        email: faker.internet.email(),
+        phone: faker.phone.number({ style: 'international' }),
+        password: faker.internet.password(),
+    }
+    const confirmPassword = user.password
+
+        cy.get('#name').type(user.name)
+        cy.get('#email').type(user.email)
+        cy.get('#phone').type(user.phone)
+        cy.get('#password').type(user.password)
+        cy.get('#confirm-password').type(confirmPassword)
+        cy.get('#terms-agreement').click()
+        cy.get('#register-btn').click()
+
+        cy.url().should('include', 'dashboard')
+        cy.get('.user-info').should('contain', user.name)
+
+    return cy.wrap(user)
+})
 
 Cypress.Commands.add('randomBooks', (qtn = 1) => {
     cy.get('.btn-primary').then((books) => {

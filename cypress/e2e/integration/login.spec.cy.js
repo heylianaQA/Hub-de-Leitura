@@ -14,7 +14,7 @@ describe('Funcionalidade: Login', () => {
         cy.get('.user-info').should('contain', 'Usuário Padrão')
     });
 
-    it.only('Deve realizar login com sucesso usando fixture', () => {
+    it('Deve realizar login com sucesso usando fixture', () => {
         cy.fixture('user').then((user) => {
         cy.get('#email').type(user.email)
         cy.get('#password').type(user.password)
