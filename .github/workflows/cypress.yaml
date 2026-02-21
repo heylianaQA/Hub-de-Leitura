@@ -23,10 +23,6 @@ jobs:
         working-directory: hub-de-leitura-integrado
         run: node scripts/init_db.js
 
-      - name: Rodar setup da aplicação
-        working-directory: hub-de-leitura-integrado
-        run: node setup.js
-
       - name: Subir aplicação em background
         working-directory: hub-de-leitura-integrado
         run: node src/server.js > /tmp/app.log 2>&1 &
