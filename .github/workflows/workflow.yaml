@@ -18,9 +18,6 @@ jobs:
       - name: Subir aplicação em background
         run: cd hub-de-leitura-integrado && npm start &
 
-      - name: Aguardar aplicação estar pronta
-        run: npx wait-on http://localhost:3000 --timeout 30000
-
       - name: Instalar dependências dos testes
         run: npm install
 
