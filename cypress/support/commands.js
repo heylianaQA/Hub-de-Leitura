@@ -31,6 +31,25 @@ Cypress.Commands.add('randomBooks', (qtn = 1) => {
     })
 })
 
+Cypress.Commands.add('randomBookDetails', (qnt = 1) => {
+    cy.get('.card > .card-body > .mt-auto > .d-grid > .btn-outline-info').then((details) => {
+        const total = details.length
+        const indices = []
+
+        while(indices.length < qnt) {
+            const randomDetails = Math.floor(Math.random() * total)
+            if(!indices.includes(randomDetails)) indices.push(randomDetails) 
+        }
+
+        indices.forEach((i) => {
+            cy.wrap(details[i]).click()
+            cy.wait(2000)
+
+        })
+    })
+})
+
+
 Cypress.Commands.add('removeRandomBook', (qtn = 1) => {
     cy.get('.card-body > .row').then((itens) => {
         const total = itens.length
