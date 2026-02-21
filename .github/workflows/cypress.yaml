@@ -29,5 +29,8 @@ jobs:
       - name: Instalar dependências dos testes
         run: npm install
 
+      - name: Instalar binário do Cypress
+        run: npx cypress install
+
       - name: Executar testes Cypress
-        run: npx cypress run
+        run: ./node_modules/.bin/cypress run
