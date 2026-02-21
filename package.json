@@ -4,8 +4,12 @@
     "cypress": "^15.10.0"
   },
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.36.0",
+    "wait-on": "^9.0.4"
   },
   "scripts": {
-    "cy:run": "npx cypress run"
+    "cy:run": "cypress run --env allure=true",
+    "allure:report": "allure generate allure-results --clean && allure open"
   }
 }
