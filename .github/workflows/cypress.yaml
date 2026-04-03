@@ -80,6 +80,6 @@ jobs:
 
       - name: Executar testes de API
         run: |
-          newman run tests/api/collection.json \
+          newman run tests-api/collection.json \
             --env-var "baseUrl=http://localhost:3000/api/" \
             --env-var "token=${{ secrets.Admin_Token }}"
