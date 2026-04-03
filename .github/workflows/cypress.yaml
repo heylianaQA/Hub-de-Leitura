@@ -71,15 +71,15 @@ jobs:
         run: node src/server.js > /temp/app.log 2 >&1 &
 
       - name: Aguardar aplicação iniciar
-        run: 
+        run: |
           sleep 20
-          curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000/api/ 
+          curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000/api/ || echo "Servidor não respondeu"
 
       - name: Instalar Newman
         run: npm install -g Newman
 
       - name: Executar testes de api
-        run: 
+        run: |
           newman run tests-api/collections.json \
           --env-var "baseUrl=http://localhost:3000/api/" \
           --env-var "token=${{ secrets.Admin_Token}}"
