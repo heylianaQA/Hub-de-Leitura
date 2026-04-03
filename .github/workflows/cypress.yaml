@@ -44,3 +44,42 @@ jobs:
 
       - name: Executar testes Cypress
         run: ./node_modules/.bin/cypress run
+
+  api-tests:
+    runs-on: ubuntu-latest
+    needs: cypress-run
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/chekout@v4
+
+      - name:  Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Intalar as dependências da aplicação
+        working-directory: hub-de-leitura-integrado
+        run: npm install
+
+      - name: Inicializar banco de dados
+        working-directory: hub-de-leitura-integrado
+        run: node scripts/init_db.js
+
+      - name: Subir aplicação me background
+        working-directory: hub-de-leitura-integrado
+        run: node src/server.js > /temp/app.log 2 >&1 &
+
+      - name: Aguardar aplicação iniciar
+        run: 
+          sleep 20
+          curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000/api/ 
+
+      - name: Instalar Newman
+        run: npm install -g Newman
+
+      - name: Executar testes de api
+        run: 
+          newman run tests-api/collections.json \
+          --env-var "baseUrl=http://localhost:3000/api/" \
+          --env-var "token=${{ secrets.Admin_Token}}"

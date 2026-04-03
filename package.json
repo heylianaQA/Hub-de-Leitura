@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@faker-js/faker": "^9.9.0",
-    "cypress": "^15.10.0"
+    "cypress": "^15.10.0",
+    "newman": "^6.2.2"
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
@@ -10,6 +11,7 @@
   },
   "scripts": {
     "cy:run": "cypress run --env allure=true",
-    "allure:report": "allure generate allure-results --clean && allure open"
+    "allure:report": "allure generate allure-results --clean && allure open",
+    "test:api": "newman run tests-api/collection.json --env-var baseUrl=http://localhost:3000/api/"
   }
 }
