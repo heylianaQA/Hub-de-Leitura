@@ -53,12 +53,12 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name:  Configurar Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Intalar as dependências da aplicação
+      - name: Instalar dependências da aplicação
         working-directory: hub-de-leitura-integrado
         run: npm install
 
@@ -66,9 +66,9 @@ jobs:
         working-directory: hub-de-leitura-integrado
         run: node scripts/init_db.js
 
-      - name: Subir aplicação me background
+      - name: Subir aplicação em background
         working-directory: hub-de-leitura-integrado
-        run: node src/server.js > /temp/app.log 2 >&1 &
+        run: node src/server.js > /tmp/app.log 2>&1 &
 
       - name: Aguardar aplicação iniciar
         run: |
@@ -76,10 +76,10 @@ jobs:
           curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000/api/ || echo "Servidor não respondeu"
 
       - name: Instalar Newman
-        run: npm install -g Newman
+        run: npm install -g newman
 
-      - name: Executar testes de api
+      - name: Executar testes de API
         run: |
-          newman run tests-api/collections.json \
-          --env-var "baseUrl=http://localhost:3000/api/" \
-          --env-var "token=${{ secrets.Admin_Token}}"
+          newman run tests/api/collection.json \
+            --env-var "baseUrl=http://localhost:3000/api/" \
+            --env-var "token=${{ secrets.Admin_Token }}"
