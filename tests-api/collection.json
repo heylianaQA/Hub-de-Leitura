@@ -261,97 +261,6 @@
           "response": []
         },
         {
-          "name": "Alterar Usuário",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Validação do status code 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "});\r",
-                  "\r",
-                  "pm.test(\"Validação mensagem de sucesso\", function () {\r",
-                  "    pm.expect(pm.response.text()).to.include(\"Usuário atualizado com sucesso.\");\r",
-                  "});"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Cache-Control",
-                "value": "no-cache",
-                "type": "text"
-              },
-              {
-                "key": "Postman-Token",
-                "value": "<calculated when request is sent>",
-                "type": "text"
-              },
-              {
-                "key": "Content-Length",
-                "value": "0",
-                "type": "text"
-              },
-              {
-                "key": "Host",
-                "value": "<calculated when request is sent>",
-                "type": "text"
-              },
-              {
-                "key": "User-Agent",
-                "value": "PostmanRuntime/7.39.1",
-                "type": "text"
-              },
-              {
-                "key": "Accept",
-                "value": "*/*",
-                "type": "text"
-              },
-              {
-                "key": "Accept-Encoding",
-                "value": "gzip, deflate, br",
-                "type": "text"
-              },
-              {
-                "key": "Connection",
-                "value": "keep-alive",
-                "type": "text"
-              },
-              {
-                "key": "Authorization",
-                "value": "{{tokenAdmin}}",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"name\": \"Usuário Modificado\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"newpassword123\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}users/34",
-              "host": [
-                "{{baseUrl}}users"
-              ],
-              "path": [
-                "34"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "Deletar Usuário",
           "event": [
             {
@@ -376,12 +285,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}users/34",
+              "raw": "{{baseUrl}}users/35",
               "host": [
                 "{{baseUrl}}users"
               ],
               "path": [
-                "32"
+                "35"
               ]
             }
           },
@@ -774,6 +683,64 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Alterar Usuário",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Validação do status code 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validaçãp da mensagem de sucesso\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"Usuário atualizado com sucesso.\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc3NTI0NTMwMywiZXhwIjoxNzc1Mjc0MTAzfQ.xT15Wc6rGmk1I8OdcDWVil4P-gmb8K2bKLn039m4YqM"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"{{$randomFullName}} Alterado\",\n  \"email\": \"{{$randomEmail}}\",\n  \"password\": \"novaSenha123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}users/35",
+          "host": [
+            "{{baseUrl}}users"
+          ],
+          "path": [
+            "35"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "auth": {
