@@ -2,7 +2,7 @@
 
 Funcionalidade: Fluxo de Empréstimo de um Livro
 
-  Cenário: Deve completar o fluxo completo de empréstimo de um livro
+  Cenário: Deve fazer o fluxo completo de empréstimo de um livro com sucesso
     Dado que estou na página inicial
     Quando eu clico no link da conta
     E eu realizo login com credenciais válidas

@@ -1,6 +1,10 @@
 # 📚 Hub de Leitura — Testes Automatizados com Cypress
 
-> Projeto de testes automatizados para o **Hub de Leitura**, uma plataforma de empréstimo de livros. Os testes cobrem os fluxos de Login, Cadastro, Catálogo/Busca de Livros e um fluxo E2E completo de empréstimo com criação de cadastro.
+> Projeto de testes automatizados para o **Hub de Leitura**, uma plataforma de empréstimo de livros.
+> Os testes cobrem os fluxos de **Login**, **Cadastro**, **Catálogo/Busca de Livros**, um **fluxo E2E completo de empréstimo** e testes de **API REST (CRUD)** com Cypress.
+
+
+![CI](https://github.com/heylianaQA/Hub-de-Leitura/actions/workflows/cypress.yaml/badge.svg)
 
 ---
 
@@ -25,7 +29,7 @@ hub-de-leitura/
 │   └── support/
 │       ├── commands.js
 │       └── e2e.js
-├── docs/                                 
+├── documents/                                 
 ├── hub-de-leitura-integrado/            
 ├── cypress.config.js
 └── package.json
@@ -73,7 +77,7 @@ Cenário positivo completo: um usuário se cadastra na plataforma e realiza o em
 ## ⚙️ Como Executar o Projeto
 
 ### Pré-requisitos
-- [Node.js](https://nodejs.org/) instalado (versão recomendada: LTS)
+- [Node.js](https://nodejs.org/) v22 (LTS)
 - npm
 
 ### Passo 1 — Iniciar o site (Hub de Leitura)
@@ -86,7 +90,7 @@ cd hub-de-leitura-integrado
 npm install && npm start
 ```
 
-> Mantenha esse terminal aberto. O site precisa estar rodando para os testes funcionarem.
+> ⚠️ Mantenha esse terminal aberto. O site precisa estar rodando para os testes funcionarem.
 
 ### Passo 2 — Executar os testes (em outro terminal)
 
@@ -108,7 +112,7 @@ npx cypress open
 
 ## 📄 Documentação
 
-A pasta `docs/` contém os seguintes arquivos:
+A pasta `documentos/` contém os seguintes arquivos:
 
 - 📋 **Plano de Teste** — estratégia, escopo e abordagem dos testes
 - 📑 **Casos de Teste** — detalhamento de cada cenário testado
@@ -118,7 +122,14 @@ A pasta `docs/` contém os seguintes arquivos:
 
 ## 🔁 Integração Contínua
 
-O projeto utiliza **GitHub Actions** para executar os testes automaticamente a cada push ou pull request. O pipeline garante que nenhuma regressão passe despercebida.
+O projeto utiliza **GitHub Actions** com dois jobs configurados:
+ 
+| Job           | Descrição                                             |
+| ------------- | ----------------------------------------------------- |
+| `cypress-run` | Executa os testes E2E (login, cadastro, catálogo, fluxo de empréstimo) |
+| `api-tests`   | Executa os testes de API REST (CRUD) — roda após o job E2E |
+ 
+O pipeline é ativado automaticamente a cada **push** ou **pull request**, garantindo que nenhuma regressão passe despercebida.
 
 ---
 
@@ -140,4 +151,5 @@ O projeto utiliza **GitHub Actions** para executar os testes automaticamente a c
 
 ## 👩‍💻 Autora
 
-Feito com 💙 para garantir a qualidade do **Hub de Leitura**.
+**Ana Inocêncio**
+[LinkedIn](https://www.linkedin.com/in/heyana-inocencio/) - heyliana.qa@gmail.com

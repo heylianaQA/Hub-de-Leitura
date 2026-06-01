@@ -9,6 +9,20 @@
 // ***********************************************
  import {faker} from '@faker-js/faker'
 
+ Cypress.Commands.add('login', () => {
+    const user = {
+        email: "liana.teste@qa.com",
+        password: "algo+123"
+    }
+    cy.get('#email').type(user.email),
+    cy.get('#password').type(user.password)
+    cy.get('#login-btn').click()
+
+    cy.url().should('include', 'dashboard')
+    cy.get('.user-info').should('exist')
+
+ })
+
 Cypress.Commands.add('register', () => {
     const user = {
         name: faker.person.fullName(),

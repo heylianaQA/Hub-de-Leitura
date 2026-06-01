@@ -4,7 +4,7 @@ import {faker} from '@faker-js/faker'
 
 context('End-to-end - Usando JS', () => {
     
-    it('Deve fazer todo um fluxo de emprestimo de apenas um livro', () => {
+    it('Deve fazer todo um fluxo de emprestimo de apenas um livro com sucesso', () => {
         cy.visit('index.html')
         cy.get('#account-link').click()
         cy.get('[href="/register.html"]').click()
