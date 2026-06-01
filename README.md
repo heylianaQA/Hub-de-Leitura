@@ -12,25 +12,35 @@
 
 ```
 hub-de-leitura/
+├── .github/
+│   └── workflows/
+│       └── cypress.yaml         
 ├── cypress/
 │   ├── e2e/
 │   │   ├── fluxo/
-│   │   │   ├── fluxo-emprestimo.cy.js       
+│   │   │   ├── fluxo-emprestimo.cy.js
 │   │   │   └── fluxo-emprestimo.feature
-│   │   └── integration/
-│   │       ├── busca-livros.feature
-│   │       ├── busca-livros.spec.cy.js       
-│   │       ├── cadastro.spec.cy.js           
-│   │       ├── login.feature
-│   │       └── login.spec.cy.js            
+│   │   ├── integration/
+│   │   │   ├── busca-livros.feature
+│   │   │   ├── busca-livros.spec.cy.js
+│   │   │   ├── cadastro.spec.cy.js
+│   │   │   ├── login.feature
+│   │   │   └── login.spec.cy.js
+│   │   └── tests-api/             
+│   │       ├── autenticacao.cy.js
+│   │       ├── gestao-de-usuario.cy.js
+│   │       └── reserva-de-livros.cy.js
 │   ├── fixtures/
 │   │   ├── perfil.json
 │   │   └── user.json
 │   └── support/
 │       ├── commands.js
 │       └── e2e.js
-├── documents/                                 
-├── hub-de-leitura-integrado/            
+├── documentos/
+│   ├── plano-de-teste.md
+│   ├── casos-de-teste.md
+│   └── relatorio-de-bugs.md
+├── hub-de-leitura-integrado/     
 ├── cypress.config.js
 └── package.json
 ```

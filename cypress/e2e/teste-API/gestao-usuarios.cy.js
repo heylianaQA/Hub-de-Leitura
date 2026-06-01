@@ -140,7 +140,7 @@ describe("DELETE : Teste de API - Gestão de Usuários", () => {
   it("Deve deletar usuário com sucesso", () => {
     cy.api({
       method: "DELETE",
-      url: "api/users/69",
+      url: "api/users/67",
       headers: { Authorization: token },
     }).should((response) => {
       (expect(response.status).to.equal(200),
