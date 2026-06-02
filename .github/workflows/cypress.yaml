@@ -44,12 +44,18 @@ jobs:
 
       - name: Executar testes Cypress
         run: ./node_modules/.bin/cypress run
+        continue-on-error: true
 
-      - name: Gerando o Relatorio
-        run: npm run report:merge && npm rum report:generate
-
-      - name: Deploy para o Github Pages
-        run: peaceiris/actions-gh-pages@v3
-        with: 
+      - name: Gerar Relatórios Mochawesome
+        run: npx mochawesome-merge cypress/reports/*.json -o cypress/reports/output.json
+ 
+      - name: Gerar relatório HTML
+        run: npx marge cypress/reports/output.json -f index -o cypress/reports
+ 
+      - name: Publicar relatório no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: cypress/report
+          publish_dir: cypress/reports
+          publish_branch: gh-pages
