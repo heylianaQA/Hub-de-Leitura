@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-06-02T23:41:27.662Z",
-    "end": "2026-06-02T23:41:44.556Z",
-    "duration": 16894,
+    "start": "2026-06-02T23:47:25.421Z",
+    "end": "2026-06-02T23:47:42.236Z",
+    "duration": 16815,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "488ee506-a8ab-4571-8694-fa45587fa2dd",
+      "uuid": "868e6a0c-d29d-4bae-8276-33dc85ab75f4",
       "title": "",
       "fullFile": "cypress/e2e/fluxo/fluxo-emprestimo.cy.js",
       "file": "cypress/e2e/fluxo/fluxo-emprestimo.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "74db31df-396b-4e44-b21a-25696def1c0a",
+          "uuid": "ed3114b8-6306-47f1-9db6-b6c5bd3714aa",
           "title": "End-to-end - Usando JS",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve fazer todo um fluxo de emprestimo de apenas um livro com sucesso",
               "fullTitle": "End-to-end - Usando JS Deve fazer todo um fluxo de emprestimo de apenas um livro com sucesso",
               "timedOut": null,
-              "duration": 16793,
+              "duration": 16721,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit('index.html');\ncy.get('#account-link').click();\ncy.get('[href=\"/register.html\"]').click();\ncy.register();\ncy.get('#update-account-button').click();\nlet birthday = _faker.faker.date.birthdate().toISOString().split('T')[0];\ncy.get('#birthdate').type(birthday);\ncy.get('#save-btn').click();\ncy.get('#alert-container').should('contain', 'Perfil atualizado com sucesso!');\ncy.get('.btn-outline-info').click();\ncy.get('.d-grid > .btn-primary').click();\ncy.randomBookDetails(1);\ncy.get('.btn-outline-secondary').click();\ncy.randomBookDetails(1);\ncy.get('#add-to-cart-btn').click();\ncy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!');\ncy.get('.btn-outline-secondary').click();\ncy.randomBooks(1);\ncy.get('#cart-count').should('contain', 2);\ncy.get('#cart-count').click();\ncy.removeRandomBook(1);\ncy.get('#checkout-btn').click();\ncy.fixture('user').then(user => {\n  cy.get('#user-phone').type(user.phone);\n});\ncy.get('#terms-agreement').click();\ncy.get('#confirm-reservations-btn').click();\ncy.get('.confirmation-card').should('exist');",
               "err": {},
-              "uuid": "fac4222c-5d5d-45de-b866-6771f9660cf7",
-              "parentUUID": "74db31df-396b-4e44-b21a-25696def1c0a",
+              "uuid": "be5c5767-3847-4805-9c13-520e605914f9",
+              "parentUUID": "ed3114b8-6306-47f1-9db6-b6c5bd3714aa",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fac4222c-5d5d-45de-b866-6771f9660cf7"
+            "be5c5767-3847-4805-9c13-520e605914f9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 16793,
+          "duration": 16721,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

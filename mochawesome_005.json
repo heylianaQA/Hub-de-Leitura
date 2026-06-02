@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-06-02T23:42:22.623Z",
-    "end": "2026-06-02T23:42:22.850Z",
-    "duration": 227,
+    "start": "2026-06-02T23:48:20.668Z",
+    "end": "2026-06-02T23:48:20.893Z",
+    "duration": 225,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "66e8890e-6da2-4a6c-83eb-3072c64d26a2",
+      "uuid": "70a5078d-103a-4234-8e1c-402d9a1b77c3",
       "title": "",
       "fullFile": "cypress/e2e/teste-API/gestao-usuarios.cy.js",
       "file": "cypress/e2e/teste-API/gestao-usuarios.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c7ad953d-8eb7-4605-9198-824b99229c2a",
+          "uuid": "5ea072e0-c296-433e-b790-4648a3a71c7d",
           "title": "DELETE : Teste de API - Gestão de Usuários",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve deletar usuário com sucesso",
               "fullTitle": "DELETE : Teste de API - Gestão de Usuários Deve deletar usuário com sucesso",
               "timedOut": null,
-              "duration": 192,
+              "duration": 190,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.api({\n  method: \"DELETE\",\n  url: `api/users/${deleteUser}`,\n  headers: {\n    Authorization: token\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.message).to.equal(\"Usuário removido com sucesso.\");\n});",
               "err": {},
-              "uuid": "e13abd04-c893-4a07-9225-387e80ce36ea",
-              "parentUUID": "c7ad953d-8eb7-4605-9198-824b99229c2a",
+              "uuid": "615edc6e-9308-4012-9abf-1b75502ec0d8",
+              "parentUUID": "5ea072e0-c296-433e-b790-4648a3a71c7d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e13abd04-c893-4a07-9225-387e80ce36ea"
+            "615edc6e-9308-4012-9abf-1b75502ec0d8"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 192,
+          "duration": 190,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
