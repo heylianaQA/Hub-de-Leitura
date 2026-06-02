@@ -1,13 +1,14 @@
 /// <reference types="cypress" />
 
-let token =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDMzOTE5NCwiZXhwIjoxNzgwMzY3OTk0fQ.fBDov-50LN2bUI9wQBO9iO7FY6HQeyEtTYY0nPkmQos";
 import { faker } from "@faker-js/faker";
 
+const token =
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDQ0MTU0NCwiZXhwIjoxNzgwNDcwMzQ0fQ.kHwO1DYMquDAiC54CCywHiPHyumfuxw81sBuIxY2Z50";
+
 describe("GET : Teste de API - Gestão de Usuários", () => {
-  it.only("Deve listar usuarios com sucesso", () => {
+  it("Deve listar usuarios com sucesso", () => {
     cy.api({
-      mehtod: "GET",
+      method: "GET",
       url: "api/users",
       headers: {
         Authorization: token,
@@ -52,11 +53,11 @@ describe("GET : Teste de API - Gestão de Usuários", () => {
       url: "api/users/",
       headers: {
         Authorization: token,
-        qs: {
-          page: 1,
-          limit: 20,
-          search: "Padrão",
-        },
+          qs: {
+            page: 1,
+            limit: 20,
+            search: "Padrão",
+          },
       },
     }).should((response) => {
       expect(response.status).to.equal(200);
@@ -75,8 +76,8 @@ describe("POST : Teste de API - Gestão de Usuários", () => {
         password: "senha123",
       },
     }).should((response) => {
-      (expect(response.status).to.equal(201),
-        expect(response.body.message).to.equal("Usuário criado com sucesso."));
+        expect(response.status).to.equal(201),
+        expect(response.body.message).to.equal("Usuário criado com sucesso.");
     });
   });
 
@@ -91,8 +92,8 @@ describe("POST : Teste de API - Gestão de Usuários", () => {
       },
       failOnStatusCode: false,
     }).should((response) => {
-      (expect(response.status).to.equal(400),
-        expect(response.body.message).to.equal("Formato de email inválido."));
+        expect(response.status).to.equal(400),
+        expect(response.body.message).to.equal("Formato de email inválido.");
     });
   });
 });
@@ -109,10 +110,10 @@ describe("PUT : Teste de API - Gestão de Usuários", () => {
         password: "senha123",
       },
     }).should((response) => {
-      (expect(response.status).to.equal(200),
+        expect(response.status).to.equal(200),
         expect(response.body.message).to.equal(
           "Usuário atualizado com sucesso.",
-        ));
+        );
     });
   });
 
@@ -128,25 +129,43 @@ describe("PUT : Teste de API - Gestão de Usuários", () => {
       },
       failOnStatusCode: false,
     }).should((response) => {
-      (expect(response.status).to.equal(400),
+        expect(response.status).to.equal(400),
         expect(response.body.message).to.equal(
           "Email já está sendo usado por outro usuário.",
-        ));
+        );
     });
   });
 });
 
 describe("DELETE : Teste de API - Gestão de Usuários", () => {
-  it("Deve deletar usuário com sucesso", () => {
+
+  let deleteUser;
+
+  // Criação de um novo usuário para o DELETE ser automatizado.
+  before(() => {
+    cy.api({
+      method: 'POST',
+      url: 'api/users',
+      body: {
+        name: faker.person.fullName(),
+        email: faker.internet.email(),
+        password: faker.internet.password(),
+      },
+    }).then((response) => {
+      expect(response.status).to.equal(201);
+      deleteUser = response.body.user.id;
+      cy.log(`Usuário criado para DELETE com ID ${deleteUser}`);
+    });
+  });
+
+  it.only("Deve deletar usuário com sucesso", () => {
     cy.api({
       method: "DELETE",
-      url: "api/users/60",
+      url: `api/users/${deleteUser}`,
       headers: { Authorization: token },
     }).should((response) => {
-      (expect(response.status).to.equal(200),
-        expect(response.body.message).to.equal(
-          "Usuário removido com sucesso.",
-        ));
+      expect(response.status).to.equal(200);
+      expect(response.body.message).to.equal("Usuário removido com sucesso.",);
     });
   });
 
@@ -157,10 +176,10 @@ describe("DELETE : Teste de API - Gestão de Usuários", () => {
       headers: { Authorization: token },
       failOnStatusCode: false
     }).should((response) => {
-      (expect(response.status).to.equal(400),
+        expect(response.status).to.equal(400),
         expect(response.body.suggestion).to.equal(
           "Cancele ou complete as reservas antes de remover o usuário.",
-        ));
+        );
     });
   });
 });

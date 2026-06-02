@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 let token =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDMzOTE5NCwiZXhwIjoxNzgwMzY3OTk0fQ.fBDov-50LN2bUI9wQBO9iO7FY6HQeyEtTYY0nPkmQos";
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDQ0MTU0NCwiZXhwIjoxNzgwNDcwMzQ0fQ.kHwO1DYMquDAiC54CCywHiPHyumfuxw81sBuIxY2Z50";
 
 describe('Validação de Usuários já definidos', () => {
     it('Deve validar usuário padrão com sucesso', () => {
