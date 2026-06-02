@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-02T22:57:19.513Z",
+    "end": "2026-06-02T22:57:31.304Z",
+    "duration": 11791,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6c1b8ea8-36ee-4910-8f59-c3200e0aa9bf",
+      "title": "",
+      "fullFile": "cypress/e2e/integration/cadastro.spec.cy.js",
+      "file": "cypress/e2e/integration/cadastro.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "836455e8-328f-42c1-a1ba-dc744140df56",
+          "title": "Funcionalidade: Cadastro",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve criar cadastro com sucesso",
+              "fullTitle": "Funcionalidade: Cadastro Deve criar cadastro com sucesso",
+              "timedOut": null,
+              "duration": 4424,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.writeFile('cypress/fixtures/user.json', user);\ncy.get('#name').type(user.name);\ncy.get('#email').type(user.email);\ncy.get('#phone').type(user.phone);\ncy.get('#password').type(user.password);\ncy.get('#confirm-password').type(confirmPassword);\ncy.get('#terms-agreement').click();\ncy.get('#register-btn').click();\ncy.url().should('include', 'dashboard');\ncy.get('.user-info').should('contain', user.name);",
+              "err": {},
+              "uuid": "bb488307-9837-4a98-a987-6c6c5fbaf7e6",
+              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve mostrar Erro de Usuario já Cadastrado",
+              "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro de Usuario já Cadastrado",
+              "timedOut": null,
+              "duration": 1638,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(confirmPassword);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('#alert-container').should('contain', 'Erro ao criar conta');\n});",
+              "err": {},
+              "uuid": "ea4bacae-fbd2-4996-bbfd-85b45f5e8b7d",
+              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve mostrar Erro no campo Nome",
+              "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Nome",
+              "timedOut": null,
+              "duration": 1399,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type('A');\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(confirmPassword);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('.invalid-feedback').should('contain', 'Nome deve ter pelo menos 2 caracteres');\n});",
+              "err": {},
+              "uuid": "d270b94c-6aed-446f-80a5-a3b56e81e312",
+              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve mostrar Erro no campo Email",
+              "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Email",
+              "timedOut": null,
+              "duration": 1475,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type('algo.email');\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(confirmPassword);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('.invalid-feedback').should('contain', 'Email válido é obrigatório');\n});",
+              "err": {},
+              "uuid": "9368e734-5f3e-423c-a3c1-b7c8d34b4e5a",
+              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve mostrar Erro no campo Senha",
+              "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Senha",
+              "timedOut": null,
+              "duration": 1045,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type(user.email);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('#password-feedback').should('contain', 'Mínimo 6 caracteres');\n});",
+              "err": {},
+              "uuid": "4aa03d56-0119-406b-99d7-d69fd2ad7cc9",
+              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve mostrar Erro no campo Confirmar Senha",
+              "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Confirmar Senha",
+              "timedOut": null,
+              "duration": 1621,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(user.password);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('.invalid-feedback').should('contain', 'Senhas não coincidem');\n});",
+              "err": {},
+              "uuid": "d912b478-5c65-480e-95a0-c1efd950bb87",
+              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bb488307-9837-4a98-a987-6c6c5fbaf7e6",
+            "ea4bacae-fbd2-4996-bbfd-85b45f5e8b7d",
+            "d270b94c-6aed-446f-80a5-a3b56e81e312",
+            "9368e734-5f3e-423c-a3c1-b7c8d34b4e5a",
+            "4aa03d56-0119-406b-99d7-d69fd2ad7cc9",
+            "d912b478-5c65-480e-95a0-c1efd950bb87"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11602,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-02T22:57:42.587Z",
+    "end": "2026-06-02T22:57:42.938Z",
+    "duration": 351,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c9b1fa59-babf-4f98-a898-99d9c1fb91bb",
+      "title": "",
+      "fullFile": "cypress/e2e/teste-API/autenticacao.cy.js",
+      "file": "cypress/e2e/teste-API/autenticacao.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+          "title": "Validação de Usuários já definidos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve validar usuário padrão com sucesso",
+              "fullTitle": "Validação de Usuários já definidos Deve validar usuário padrão com sucesso",
+              "timedOut": null,
+              "duration": 133,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: 'api/login',\n  body: {\n    \"email\": \"usuario@teste.com\",\n    \"password\": \"user123\"\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
+              "err": {},
+              "uuid": "1cc10c3a-579a-466f-9ccc-687874ec1514",
+              "parentUUID": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar usuário administrador com sucesso",
+              "fullTitle": "Validação de Usuários já definidos Deve validar usuário administrador com sucesso",
+              "timedOut": null,
+              "duration": 94,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: 'api/login',\n  body: {\n    \"email\": \"admin@biblioteca.com\",\n    \"password\": \"admin123\"\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
+              "err": {},
+              "uuid": "948986ea-f55c-4c1b-9fb3-fd424578649c",
+              "parentUUID": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve ocorrer erro de credenciais - credenciais inválidas",
+              "fullTitle": "Validação de Usuários já definidos Deve ocorrer erro de credenciais - credenciais inválidas",
+              "timedOut": null,
+              "duration": 38,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: 'api/login',\n  body: {\n    \"email\": \"inexistente@email.com\",\n    \"password\": \"user123\"\n  },\n  failOnStatusCode: false\n}).should(response => {\n  expect(response.status).to.equal(401), expect(response.body.error).to.equal(\"INVALID_CREDENTIALS\");\n});",
+              "err": {},
+              "uuid": "72e2ff9f-66c5-491c-9b6b-4029f144cdb2",
+              "parentUUID": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1cc10c3a-579a-466f-9ccc-687874ec1514",
+            "948986ea-f55c-4c1b-9fb3-fd424578649c",
+            "72e2ff9f-66c5-491c-9b6b-4029f144cdb2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 265,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

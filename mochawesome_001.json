@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-02T22:57:11.592Z",
+    "end": "2026-06-02T22:57:14.606Z",
+    "duration": 3014,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "680beb3f-182b-4d81-a249-c568c87f60d1",
+      "title": "",
+      "fullFile": "cypress/e2e/integration/busca-livros.spec.cy.js",
+      "file": "cypress/e2e/integration/busca-livros.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c2106cf-fba8-4e75-b339-99a83951b632",
+          "title": "Funcionalidade: Busca de Livros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve encontrar livro pela barra de pesquisa",
+              "fullTitle": "Funcionalidade: Busca de Livros Deve encontrar livro pela barra de pesquisa",
+              "timedOut": null,
+              "duration": 1191,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#search-input').type('A Metamorfose');\ncy.get('#filter-description').should('contain', 'Busca:');\ncy.get('.card-title > .text-dark').first().click();",
+              "err": {},
+              "uuid": "fba3fa3f-e243-464a-9649-0956834d3e2c",
+              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve abrir pagina de detalhes e adicionar à Cesta",
+              "fullTitle": "Funcionalidade: Busca de Livros Deve abrir pagina de detalhes e adicionar à Cesta",
+              "timedOut": null,
+              "duration": 432,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.card-title > .text-dark').eq(5).click();\ncy.url().should('include', 'book-details');\ncy.get('#add-to-cart-btn').click();\ncy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!');\ncy.get('#cart-count').should('contain', 1);",
+              "err": {},
+              "uuid": "23f35977-0894-4856-ba48-f048c1d537a1",
+              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve clicar no botão Adicionar à Cesta",
+              "fullTitle": "Funcionalidade: Busca de Livros Deve clicar no botão Adicionar à Cesta",
+              "timedOut": null,
+              "duration": 242,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.btn-primary').eq(5).click();\ncy.get('#global-alert-container').should('contain', 'foi adicionado à cesta!');\ncy.get('#cart-count').should('contain', 1);",
+              "err": {},
+              "uuid": "f59cad7f-33b5-4043-aa14-b602603fdfdc",
+              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve Adicionar 2 livros na cesta",
+              "fullTitle": "Funcionalidade: Busca de Livros Deve Adicionar 2 livros na cesta",
+              "timedOut": null,
+              "duration": 531,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.btn-primary').eq(5).click();\ncy.get('#global-alert-container').should('contain', 'foi adicionado à cesta!');\ncy.get('.card-title > .text-dark').eq(4).click();\ncy.url().should('include', 'book-details');\ncy.get('#add-to-cart-btn').click();\ncy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!');\ncy.get('#cart-count').should('contain', 2);\ncy.get('.btn-outline-secondary').click();",
+              "err": {},
+              "uuid": "1c5f598c-f13b-4870-a9c5-0802433dc16c",
+              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve adicionar 3 livros na cesta de forma automatizada",
+              "fullTitle": "Funcionalidade: Busca de Livros Deve adicionar 3 livros na cesta de forma automatizada",
+              "timedOut": null,
+              "duration": 430,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.btn-primary').then(livros => {\n  const total = livros.length;\n  const index = [];\n  while (index.length < 3) {\n    const random = Math.floor(Math.random() * total);\n    if (!index.includes(random)) {\n      index.push(random);\n    }\n  }\n  index.forEach(i => {\n    cy.wrap(livros[i]).click();\n  });\n});\ncy.get('#cart-count').should('contain', 3);",
+              "err": {},
+              "uuid": "064f47fe-7172-4ebc-bc22-e00fc8811d3d",
+              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fba3fa3f-e243-464a-9649-0956834d3e2c",
+            "23f35977-0894-4856-ba48-f048c1d537a1",
+            "f59cad7f-33b5-4043-aa14-b602603fdfdc",
+            "1c5f598c-f13b-4870-a9c5-0802433dc16c",
+            "064f47fe-7172-4ebc-bc22-e00fc8811d3d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2826,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
