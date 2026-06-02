@@ -2,23 +2,23 @@
   "stats": {
     "suites": 7,
     "tests": 23,
-    "passes": 22,
+    "passes": 23,
     "pending": 0,
-    "failures": 1,
+    "failures": 0,
     "testsRegistered": 23,
-    "passPercent": 95.65217391304348,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
-    "start": "2026-06-02T22:56:52.034Z",
-    "end": "2026-06-02T22:57:51.370Z",
-    "duration": 59336
+    "start": "2026-06-02T23:41:27.662Z",
+    "end": "2026-06-02T23:42:26.037Z",
+    "duration": 58375
   },
   "results": [
     {
-      "uuid": "dff29ba3-0e0e-44ee-9eee-78d76d2b4340",
+      "uuid": "488ee506-a8ab-4571-8694-fa45587fa2dd",
       "title": "",
       "fullFile": "cypress/e2e/fluxo/fluxo-emprestimo.cy.js",
       "file": "cypress/e2e/fluxo/fluxo-emprestimo.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "894bf9a7-d730-4cec-a2d6-e19842bbb56e",
+          "uuid": "74db31df-396b-4e44-b21a-25696def1c0a",
           "title": "End-to-end - Usando JS",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve fazer todo um fluxo de emprestimo de apenas um livro com sucesso",
               "fullTitle": "End-to-end - Usando JS Deve fazer todo um fluxo de emprestimo de apenas um livro com sucesso",
               "timedOut": null,
-              "duration": 16504,
+              "duration": 16793,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit('index.html');\ncy.get('#account-link').click();\ncy.get('[href=\"/register.html\"]').click();\ncy.register();\ncy.get('#update-account-button').click();\nlet birthday = _faker.faker.date.birthdate().toISOString().split('T')[0];\ncy.get('#birthdate').type(birthday);\ncy.get('#save-btn').click();\ncy.get('#alert-container').should('contain', 'Perfil atualizado com sucesso!');\ncy.get('.btn-outline-info').click();\ncy.get('.d-grid > .btn-primary').click();\ncy.randomBookDetails(1);\ncy.get('.btn-outline-secondary').click();\ncy.randomBookDetails(1);\ncy.get('#add-to-cart-btn').click();\ncy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!');\ncy.get('.btn-outline-secondary').click();\ncy.randomBooks(1);\ncy.get('#cart-count').should('contain', 2);\ncy.get('#cart-count').click();\ncy.removeRandomBook(1);\ncy.get('#checkout-btn').click();\ncy.fixture('user').then(user => {\n  cy.get('#user-phone').type(user.phone);\n});\ncy.get('#terms-agreement').click();\ncy.get('#confirm-reservations-btn').click();\ncy.get('.confirmation-card').should('exist');",
               "err": {},
-              "uuid": "f8c75f9b-ad23-4c7c-b576-2241cde6043f",
-              "parentUUID": "894bf9a7-d730-4cec-a2d6-e19842bbb56e",
+              "uuid": "fac4222c-5d5d-45de-b866-6771f9660cf7",
+              "parentUUID": "74db31df-396b-4e44-b21a-25696def1c0a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f8c75f9b-ad23-4c7c-b576-2241cde6043f"
+            "fac4222c-5d5d-45de-b866-6771f9660cf7"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 16504,
+          "duration": 16793,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -76,7 +76,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "680beb3f-182b-4d81-a249-c568c87f60d1",
+      "uuid": "6244c898-4af2-4092-bb1a-ad41856059e7",
       "title": "",
       "fullFile": "cypress/e2e/integration/busca-livros.spec.cy.js",
       "file": "cypress/e2e/integration/busca-livros.spec.cy.js",
@@ -85,7 +85,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8c2106cf-fba8-4e75-b339-99a83951b632",
+          "uuid": "46dc535e-6985-4786-94fa-86efd4c9353c",
           "title": "Funcionalidade: Busca de Livros",
           "fullFile": "",
           "file": "",
@@ -96,7 +96,7 @@
               "title": "Deve encontrar livro pela barra de pesquisa",
               "fullTitle": "Funcionalidade: Busca de Livros Deve encontrar livro pela barra de pesquisa",
               "timedOut": null,
-              "duration": 1191,
+              "duration": 1186,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -105,8 +105,8 @@
               "context": null,
               "code": "cy.get('#search-input').type('A Metamorfose');\ncy.get('#filter-description').should('contain', 'Busca:');\ncy.get('.card-title > .text-dark').first().click();",
               "err": {},
-              "uuid": "fba3fa3f-e243-464a-9649-0956834d3e2c",
-              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "uuid": "a58b1cac-0881-4815-b4ba-81fe9842ab08",
+              "parentUUID": "46dc535e-6985-4786-94fa-86efd4c9353c",
               "isHook": false,
               "skipped": false
             },
@@ -114,7 +114,7 @@
               "title": "Deve abrir pagina de detalhes e adicionar à Cesta",
               "fullTitle": "Funcionalidade: Busca de Livros Deve abrir pagina de detalhes e adicionar à Cesta",
               "timedOut": null,
-              "duration": 432,
+              "duration": 382,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -123,8 +123,8 @@
               "context": null,
               "code": "cy.get('.card-title > .text-dark').eq(5).click();\ncy.url().should('include', 'book-details');\ncy.get('#add-to-cart-btn').click();\ncy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!');\ncy.get('#cart-count').should('contain', 1);",
               "err": {},
-              "uuid": "23f35977-0894-4856-ba48-f048c1d537a1",
-              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "uuid": "5ceda81c-1181-4c52-8796-2f1c0dda4f31",
+              "parentUUID": "46dc535e-6985-4786-94fa-86efd4c9353c",
               "isHook": false,
               "skipped": false
             },
@@ -132,7 +132,7 @@
               "title": "Deve clicar no botão Adicionar à Cesta",
               "fullTitle": "Funcionalidade: Busca de Livros Deve clicar no botão Adicionar à Cesta",
               "timedOut": null,
-              "duration": 242,
+              "duration": 240,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -141,8 +141,8 @@
               "context": null,
               "code": "cy.get('.btn-primary').eq(5).click();\ncy.get('#global-alert-container').should('contain', 'foi adicionado à cesta!');\ncy.get('#cart-count').should('contain', 1);",
               "err": {},
-              "uuid": "f59cad7f-33b5-4043-aa14-b602603fdfdc",
-              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "uuid": "5f5e8072-3b75-494a-8bc2-3c69de4a8aae",
+              "parentUUID": "46dc535e-6985-4786-94fa-86efd4c9353c",
               "isHook": false,
               "skipped": false
             },
@@ -150,7 +150,7 @@
               "title": "Deve Adicionar 2 livros na cesta",
               "fullTitle": "Funcionalidade: Busca de Livros Deve Adicionar 2 livros na cesta",
               "timedOut": null,
-              "duration": 531,
+              "duration": 523,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -159,8 +159,8 @@
               "context": null,
               "code": "cy.get('.btn-primary').eq(5).click();\ncy.get('#global-alert-container').should('contain', 'foi adicionado à cesta!');\ncy.get('.card-title > .text-dark').eq(4).click();\ncy.url().should('include', 'book-details');\ncy.get('#add-to-cart-btn').click();\ncy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!');\ncy.get('#cart-count').should('contain', 2);\ncy.get('.btn-outline-secondary').click();",
               "err": {},
-              "uuid": "1c5f598c-f13b-4870-a9c5-0802433dc16c",
-              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "uuid": "8ed0873c-1974-4a6b-a0c4-c8a85fa37dae",
+              "parentUUID": "46dc535e-6985-4786-94fa-86efd4c9353c",
               "isHook": false,
               "skipped": false
             },
@@ -168,7 +168,7 @@
               "title": "Deve adicionar 3 livros na cesta de forma automatizada",
               "fullTitle": "Funcionalidade: Busca de Livros Deve adicionar 3 livros na cesta de forma automatizada",
               "timedOut": null,
-              "duration": 430,
+              "duration": 481,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -177,24 +177,24 @@
               "context": null,
               "code": "cy.get('.btn-primary').then(livros => {\n  const total = livros.length;\n  const index = [];\n  while (index.length < 3) {\n    const random = Math.floor(Math.random() * total);\n    if (!index.includes(random)) {\n      index.push(random);\n    }\n  }\n  index.forEach(i => {\n    cy.wrap(livros[i]).click();\n  });\n});\ncy.get('#cart-count').should('contain', 3);",
               "err": {},
-              "uuid": "064f47fe-7172-4ebc-bc22-e00fc8811d3d",
-              "parentUUID": "8c2106cf-fba8-4e75-b339-99a83951b632",
+              "uuid": "7d2e412d-92fd-4234-919f-111be547a917",
+              "parentUUID": "46dc535e-6985-4786-94fa-86efd4c9353c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fba3fa3f-e243-464a-9649-0956834d3e2c",
-            "23f35977-0894-4856-ba48-f048c1d537a1",
-            "f59cad7f-33b5-4043-aa14-b602603fdfdc",
-            "1c5f598c-f13b-4870-a9c5-0802433dc16c",
-            "064f47fe-7172-4ebc-bc22-e00fc8811d3d"
+            "a58b1cac-0881-4815-b4ba-81fe9842ab08",
+            "5ceda81c-1181-4c52-8796-2f1c0dda4f31",
+            "5f5e8072-3b75-494a-8bc2-3c69de4a8aae",
+            "8ed0873c-1974-4a6b-a0c4-c8a85fa37dae",
+            "7d2e412d-92fd-4234-919f-111be547a917"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2826,
+          "duration": 2812,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -210,7 +210,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "6c1b8ea8-36ee-4910-8f59-c3200e0aa9bf",
+      "uuid": "251580f9-acfa-4670-8786-794f3a10065b",
       "title": "",
       "fullFile": "cypress/e2e/integration/cadastro.spec.cy.js",
       "file": "cypress/e2e/integration/cadastro.spec.cy.js",
@@ -219,7 +219,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "836455e8-328f-42c1-a1ba-dc744140df56",
+          "uuid": "143eb491-e483-4857-aa43-9d7e13cb428b",
           "title": "Funcionalidade: Cadastro",
           "fullFile": "",
           "file": "",
@@ -230,7 +230,7 @@
               "title": "Deve criar cadastro com sucesso",
               "fullTitle": "Funcionalidade: Cadastro Deve criar cadastro com sucesso",
               "timedOut": null,
-              "duration": 4424,
+              "duration": 4254,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -239,8 +239,8 @@
               "context": null,
               "code": "cy.writeFile('cypress/fixtures/user.json', user);\ncy.get('#name').type(user.name);\ncy.get('#email').type(user.email);\ncy.get('#phone').type(user.phone);\ncy.get('#password').type(user.password);\ncy.get('#confirm-password').type(confirmPassword);\ncy.get('#terms-agreement').click();\ncy.get('#register-btn').click();\ncy.url().should('include', 'dashboard');\ncy.get('.user-info').should('contain', user.name);",
               "err": {},
-              "uuid": "bb488307-9837-4a98-a987-6c6c5fbaf7e6",
-              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "uuid": "0293ef39-ea98-449a-9749-16a16877dbb4",
+              "parentUUID": "143eb491-e483-4857-aa43-9d7e13cb428b",
               "isHook": false,
               "skipped": false
             },
@@ -248,7 +248,7 @@
               "title": "Deve mostrar Erro de Usuario já Cadastrado",
               "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro de Usuario já Cadastrado",
               "timedOut": null,
-              "duration": 1638,
+              "duration": 1494,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -257,8 +257,8 @@
               "context": null,
               "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(confirmPassword);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('#alert-container').should('contain', 'Erro ao criar conta');\n});",
               "err": {},
-              "uuid": "ea4bacae-fbd2-4996-bbfd-85b45f5e8b7d",
-              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "uuid": "a4673776-0ce7-4eae-a9a5-e821c0b75643",
+              "parentUUID": "143eb491-e483-4857-aa43-9d7e13cb428b",
               "isHook": false,
               "skipped": false
             },
@@ -266,7 +266,7 @@
               "title": "Deve mostrar Erro no campo Nome",
               "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Nome",
               "timedOut": null,
-              "duration": 1399,
+              "duration": 1340,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -275,8 +275,8 @@
               "context": null,
               "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type('A');\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(confirmPassword);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('.invalid-feedback').should('contain', 'Nome deve ter pelo menos 2 caracteres');\n});",
               "err": {},
-              "uuid": "d270b94c-6aed-446f-80a5-a3b56e81e312",
-              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "uuid": "ae31fc32-9195-49c0-9f13-72aa9309fec6",
+              "parentUUID": "143eb491-e483-4857-aa43-9d7e13cb428b",
               "isHook": false,
               "skipped": false
             },
@@ -284,7 +284,7 @@
               "title": "Deve mostrar Erro no campo Email",
               "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Email",
               "timedOut": null,
-              "duration": 1475,
+              "duration": 1404,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -293,8 +293,8 @@
               "context": null,
               "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type('algo.email');\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(confirmPassword);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('.invalid-feedback').should('contain', 'Email válido é obrigatório');\n});",
               "err": {},
-              "uuid": "9368e734-5f3e-423c-a3c1-b7c8d34b4e5a",
-              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "uuid": "63b58457-4465-4c1e-8b4a-1dd504bda1dd",
+              "parentUUID": "143eb491-e483-4857-aa43-9d7e13cb428b",
               "isHook": false,
               "skipped": false
             },
@@ -302,7 +302,7 @@
               "title": "Deve mostrar Erro no campo Senha",
               "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Senha",
               "timedOut": null,
-              "duration": 1045,
+              "duration": 900,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -311,8 +311,8 @@
               "context": null,
               "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type(user.email);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('#password-feedback').should('contain', 'Mínimo 6 caracteres');\n});",
               "err": {},
-              "uuid": "4aa03d56-0119-406b-99d7-d69fd2ad7cc9",
-              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "uuid": "9268825a-fbd5-4c12-95e7-48cef7811266",
+              "parentUUID": "143eb491-e483-4857-aa43-9d7e13cb428b",
               "isHook": false,
               "skipped": false
             },
@@ -320,7 +320,7 @@
               "title": "Deve mostrar Erro no campo Confirmar Senha",
               "fullTitle": "Funcionalidade: Cadastro Deve mostrar Erro no campo Confirmar Senha",
               "timedOut": null,
-              "duration": 1621,
+              "duration": 1475,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -329,25 +329,25 @@
               "context": null,
               "code": "cy.fixture('user').then(user => {\n  cy.get('#name').type(user.name);\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#confirm-password').type(user.password);\n  cy.get('#terms-agreement').click();\n  cy.get('#register-btn').click();\n  cy.get('.invalid-feedback').should('contain', 'Senhas não coincidem');\n});",
               "err": {},
-              "uuid": "d912b478-5c65-480e-95a0-c1efd950bb87",
-              "parentUUID": "836455e8-328f-42c1-a1ba-dc744140df56",
+              "uuid": "455033d3-da71-4029-80d7-f7d49503cbbb",
+              "parentUUID": "143eb491-e483-4857-aa43-9d7e13cb428b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "bb488307-9837-4a98-a987-6c6c5fbaf7e6",
-            "ea4bacae-fbd2-4996-bbfd-85b45f5e8b7d",
-            "d270b94c-6aed-446f-80a5-a3b56e81e312",
-            "9368e734-5f3e-423c-a3c1-b7c8d34b4e5a",
-            "4aa03d56-0119-406b-99d7-d69fd2ad7cc9",
-            "d912b478-5c65-480e-95a0-c1efd950bb87"
+            "0293ef39-ea98-449a-9749-16a16877dbb4",
+            "a4673776-0ce7-4eae-a9a5-e821c0b75643",
+            "ae31fc32-9195-49c0-9f13-72aa9309fec6",
+            "63b58457-4465-4c1e-8b4a-1dd504bda1dd",
+            "9268825a-fbd5-4c12-95e7-48cef7811266",
+            "455033d3-da71-4029-80d7-f7d49503cbbb"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 11602,
+          "duration": 10867,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -363,7 +363,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "fdc6e4f2-48f5-4791-89f9-02cdf10d27bb",
+      "uuid": "016ebcfb-f86a-40b4-b14f-98d31bab226e",
       "title": "",
       "fullFile": "cypress/e2e/integration/login.spec.cy.js",
       "file": "cypress/e2e/integration/login.spec.cy.js",
@@ -372,7 +372,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8694e98b-b850-41b5-9822-caf2e82f2578",
+          "uuid": "dac8d544-dd36-4f06-be3d-e946cfbcce1d",
           "title": "Funcionalidade: Login",
           "fullFile": "",
           "file": "",
@@ -383,7 +383,7 @@
               "title": "Deve realizar login com sucesso com dados já pré-definidos",
               "fullTitle": "Funcionalidade: Login Deve realizar login com sucesso com dados já pré-definidos",
               "timedOut": null,
-              "duration": 2112,
+              "duration": 2144,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -392,8 +392,8 @@
               "context": null,
               "code": "cy.get('#email').type('usuario@teste.com');\ncy.get('#password').type('user123');\ncy.get('#login-btn').click();\ncy.get('.user-info').should('contain', 'Usuário Padrão');",
               "err": {},
-              "uuid": "4d738885-2b8c-4ef6-9859-0fa2216ee913",
-              "parentUUID": "8694e98b-b850-41b5-9822-caf2e82f2578",
+              "uuid": "b91a1cfb-46a3-4f9f-af9d-0da41266e540",
+              "parentUUID": "dac8d544-dd36-4f06-be3d-e946cfbcce1d",
               "isHook": false,
               "skipped": false
             },
@@ -401,7 +401,7 @@
               "title": "Deve realizar login com sucesso usando fixture",
               "fullTitle": "Funcionalidade: Login Deve realizar login com sucesso usando fixture",
               "timedOut": null,
-              "duration": 2109,
+              "duration": 2052,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -410,8 +410,8 @@
               "context": null,
               "code": "cy.fixture('user').then(user => {\n  cy.get('#email').type(user.email);\n  cy.get('#password').type(user.password);\n  cy.get('#login-btn').click();\n  cy.get('.user-info').should('contain', user.name);\n});",
               "err": {},
-              "uuid": "ec1770bd-ffb4-4114-8e7f-36edfcbb23af",
-              "parentUUID": "8694e98b-b850-41b5-9822-caf2e82f2578",
+              "uuid": "5826a57a-f747-4c1f-a948-5c73a2d8b108",
+              "parentUUID": "dac8d544-dd36-4f06-be3d-e946cfbcce1d",
               "isHook": false,
               "skipped": false
             },
@@ -419,7 +419,7 @@
               "title": "Deve mostrar menssagem de Erro",
               "fullTitle": "Funcionalidade: Login Deve mostrar menssagem de Erro",
               "timedOut": null,
-              "duration": 719,
+              "duration": 714,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -428,8 +428,8 @@
               "context": null,
               "code": "cy.get('#email').type('email.errado@teste.br');\ncy.get('#password').type('algo');\ncy.get('#login-btn').click();\ncy.get('#alert-container').should('contain', 'Email ou senha incorretos.');",
               "err": {},
-              "uuid": "12528920-b56d-4315-99db-e222bfdfbdb3",
-              "parentUUID": "8694e98b-b850-41b5-9822-caf2e82f2578",
+              "uuid": "eb79f0bd-6f3d-4cbc-959a-1b575d363df0",
+              "parentUUID": "dac8d544-dd36-4f06-be3d-e946cfbcce1d",
               "isHook": false,
               "skipped": false
             },
@@ -437,7 +437,7 @@
               "title": "Deve mostrar alerta para Email não informado",
               "fullTitle": "Funcionalidade: Login Deve mostrar alerta para Email não informado",
               "timedOut": null,
-              "duration": 351,
+              "duration": 341,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -446,23 +446,23 @@
               "context": null,
               "code": "cy.get('#password').type('algo');\ncy.get('#login-btn').click();\ncy.get('.invalid-feedback').should('contain', 'Por favor, insira um email válido.');",
               "err": {},
-              "uuid": "b9968570-300e-468c-859b-2649c0e8c99d",
-              "parentUUID": "8694e98b-b850-41b5-9822-caf2e82f2578",
+              "uuid": "a83266a4-cf74-4378-8515-575cb96052f8",
+              "parentUUID": "dac8d544-dd36-4f06-be3d-e946cfbcce1d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "4d738885-2b8c-4ef6-9859-0fa2216ee913",
-            "ec1770bd-ffb4-4114-8e7f-36edfcbb23af",
-            "12528920-b56d-4315-99db-e222bfdfbdb3",
-            "b9968570-300e-468c-859b-2649c0e8c99d"
+            "b91a1cfb-46a3-4f9f-af9d-0da41266e540",
+            "5826a57a-f747-4c1f-a948-5c73a2d8b108",
+            "eb79f0bd-6f3d-4cbc-959a-1b575d363df0",
+            "a83266a4-cf74-4378-8515-575cb96052f8"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5291,
+          "duration": 5251,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -478,7 +478,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "c9b1fa59-babf-4f98-a898-99d9c1fb91bb",
+      "uuid": "5ccb7520-d3af-40b0-8d47-16b8aa1fe70b",
       "title": "",
       "fullFile": "cypress/e2e/teste-API/autenticacao.cy.js",
       "file": "cypress/e2e/teste-API/autenticacao.cy.js",
@@ -487,7 +487,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+          "uuid": "3ca066c7-eabb-4965-bff5-6a3154603f39",
           "title": "Validação de Usuários já definidos",
           "fullFile": "",
           "file": "",
@@ -498,7 +498,7 @@
               "title": "Deve validar usuário padrão com sucesso",
               "fullTitle": "Validação de Usuários já definidos Deve validar usuário padrão com sucesso",
               "timedOut": null,
-              "duration": 133,
+              "duration": 136,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -507,8 +507,8 @@
               "context": null,
               "code": "cy.api({\n  method: \"POST\",\n  url: 'api/login',\n  body: {\n    \"email\": \"usuario@teste.com\",\n    \"password\": \"user123\"\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "1cc10c3a-579a-466f-9ccc-687874ec1514",
-              "parentUUID": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+              "uuid": "4766a75a-5707-454e-9461-20a5f304405a",
+              "parentUUID": "3ca066c7-eabb-4965-bff5-6a3154603f39",
               "isHook": false,
               "skipped": false
             },
@@ -516,7 +516,7 @@
               "title": "Deve validar usuário administrador com sucesso",
               "fullTitle": "Validação de Usuários já definidos Deve validar usuário administrador com sucesso",
               "timedOut": null,
-              "duration": 94,
+              "duration": 95,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -525,8 +525,8 @@
               "context": null,
               "code": "cy.api({\n  method: \"POST\",\n  url: 'api/login',\n  body: {\n    \"email\": \"admin@biblioteca.com\",\n    \"password\": \"admin123\"\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "948986ea-f55c-4c1b-9fb3-fd424578649c",
-              "parentUUID": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+              "uuid": "37537c8b-31ee-4302-aeb5-b41cacb1d0e5",
+              "parentUUID": "3ca066c7-eabb-4965-bff5-6a3154603f39",
               "isHook": false,
               "skipped": false
             },
@@ -534,7 +534,7 @@
               "title": "Deve ocorrer erro de credenciais - credenciais inválidas",
               "fullTitle": "Validação de Usuários já definidos Deve ocorrer erro de credenciais - credenciais inválidas",
               "timedOut": null,
-              "duration": 38,
+              "duration": 39,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -543,22 +543,22 @@
               "context": null,
               "code": "cy.api({\n  method: \"POST\",\n  url: 'api/login',\n  body: {\n    \"email\": \"inexistente@email.com\",\n    \"password\": \"user123\"\n  },\n  failOnStatusCode: false\n}).should(response => {\n  expect(response.status).to.equal(401), expect(response.body.error).to.equal(\"INVALID_CREDENTIALS\");\n});",
               "err": {},
-              "uuid": "72e2ff9f-66c5-491c-9b6b-4029f144cdb2",
-              "parentUUID": "e83cca4d-dc01-4041-ad38-59d0ffc0643f",
+              "uuid": "6b027013-a05b-449d-945d-b70b70106721",
+              "parentUUID": "3ca066c7-eabb-4965-bff5-6a3154603f39",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "1cc10c3a-579a-466f-9ccc-687874ec1514",
-            "948986ea-f55c-4c1b-9fb3-fd424578649c",
-            "72e2ff9f-66c5-491c-9b6b-4029f144cdb2"
+            "4766a75a-5707-454e-9461-20a5f304405a",
+            "37537c8b-31ee-4302-aeb5-b41cacb1d0e5",
+            "6b027013-a05b-449d-945d-b70b70106721"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 265,
+          "duration": 270,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -574,7 +574,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "199f8093-69ef-4ac1-b545-9eed5e41899b",
+      "uuid": "66e8890e-6da2-4a6c-83eb-3072c64d26a2",
       "title": "",
       "fullFile": "cypress/e2e/teste-API/gestao-usuarios.cy.js",
       "file": "cypress/e2e/teste-API/gestao-usuarios.cy.js",
@@ -583,44 +583,40 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ce1fd3a5-8764-40e8-a428-e45850916761",
-          "title": "GET : Teste de API - Gestão de Usuários",
+          "uuid": "c7ad953d-8eb7-4605-9198-824b99229c2a",
+          "title": "DELETE : Teste de API - Gestão de Usuários",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Deve listar usuarios com sucesso",
-              "fullTitle": "GET : Teste de API - Gestão de Usuários Deve listar usuarios com sucesso",
+              "title": "Deve deletar usuário com sucesso",
+              "fullTitle": "DELETE : Teste de API - Gestão de Usuários Deve deletar usuário com sucesso",
               "timedOut": null,
-              "duration": 188,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 192,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.api({\n  mehtod: \"GET\",\n  url: \"api/users\",\n  headers: {\n    Authorization: token\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.users).to.be.an(\"array\");\n});",
-              "err": {
-                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/api/users\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:3000/api/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDMzOTE5NCwiZXhwIjoxNzgwMzY3OTk0fQ.fBDov-50LN2bUI9wQBO9iO7FY6HQeyEtTYY0nPkmQos\",\n  \"user-agent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.10.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"147\",\n  \"etag\": \"W/\\\"93-ZD7yVgLgejc9yCpgip7iSXCvMps\\\"\",\n  \"date\": \"Tue, 02 Jun 2026 22:57:47 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: {\n  \"message\": \"Token expirado\",\n  \"error\": \"EXPIRED_TOKEN\",\n  \"expiredAt\": \"2026-06-02T02:39:54.000Z\",\n  \"hint\": \"Faça login novamente para obter um novo token\"\n}\n\n\nhttps://on.cypress.io/request",
-                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/api/users\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:3000/api/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDMzOTE5NCwiZXhwIjoxNzgwMzY3OTk0fQ.fBDov-50LN2bUI9wQBO9iO7FY6HQeyEtTYY0nPkmQos\",\n  \"user-agent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.10.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"147\",\n  \"etag\": \"W/\\\"93-ZD7yVgLgejc9yCpgip7iSXCvMps\\\"\",\n  \"date\": \"Tue, 02 Jun 2026 22:57:47 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: {\n  \"message\": \"Token expirado\",\n  \"error\": \"EXPIRED_TOKEN\",\n  \"expiredAt\": \"2026-06-02T02:39:54.000Z\",\n  \"hint\": \"Faça login novamente para obter um novo token\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:136431:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.ee (webpack:///./node_modules/cypress-plugin-api/dist/support.js:14:2002)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:146319:43)",
-                "diff": null
-              },
-              "uuid": "4ae5db90-a2e1-47e4-8b22-b6fc02f618a5",
-              "parentUUID": "ce1fd3a5-8764-40e8-a428-e45850916761",
+              "code": "cy.api({\n  method: \"DELETE\",\n  url: `api/users/${deleteUser}`,\n  headers: {\n    Authorization: token\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.message).to.equal(\"Usuário removido com sucesso.\");\n});",
+              "err": {},
+              "uuid": "e13abd04-c893-4a07-9225-387e80ce36ea",
+              "parentUUID": "c7ad953d-8eb7-4605-9198-824b99229c2a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "4ae5db90-a2e1-47e4-8b22-b6fc02f618a5"
+          "passes": [
+            "e13abd04-c893-4a07-9225-387e80ce36ea"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 188,
+          "duration": 192,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -636,7 +632,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "bf49f7a5-379a-4388-b153-8b358121c00b",
+      "uuid": "cf80f5c2-5d78-49da-9cda-4d505882b4dd",
       "title": "",
       "fullFile": "cypress/e2e/teste-API/reserva-de-livros.cy.js",
       "file": "cypress/e2e/teste-API/reserva-de-livros.cy.js",
@@ -645,7 +641,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e874c9bd-8549-4ed4-8827-edfe3af62c43",
+          "uuid": "9159e056-da7b-41f3-a6e7-f5bc158e480c",
           "title": "Catálogo de livros",
           "fullFile": "",
           "file": "",
@@ -656,7 +652,7 @@
               "title": "Deve listar todos os livros disponíveis com sucesso",
               "fullTitle": "Catálogo de livros Deve listar todos os livros disponíveis com sucesso",
               "timedOut": null,
-              "duration": 89,
+              "duration": 90,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -665,8 +661,8 @@
               "context": null,
               "code": "cy.api({\n  method: 'GET',\n  url: 'api/books'\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "aa20c29f-6705-4339-ad64-0c44a82c1aed",
-              "parentUUID": "e874c9bd-8549-4ed4-8827-edfe3af62c43",
+              "uuid": "00a3f89b-f0a0-4b3f-8372-33cd3f55c0a6",
+              "parentUUID": "9159e056-da7b-41f3-a6e7-f5bc158e480c",
               "isHook": false,
               "skipped": false
             },
@@ -674,7 +670,7 @@
               "title": "Deve listar todos os livros disponíveis na categoria Ficção",
               "fullTitle": "Catálogo de livros Deve listar todos os livros disponíveis na categoria Ficção",
               "timedOut": null,
-              "duration": 50,
+              "duration": 47,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -683,8 +679,8 @@
               "context": null,
               "code": "cy.api({\n  method: 'GET',\n  url: 'api/books',\n  category: 'Ficção',\n  avaliable: 'true',\n  orderBy: 'title',\n  order: \"ASC\"\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "4d74d71d-4a9c-4f44-91d4-c9b71484130f",
-              "parentUUID": "e874c9bd-8549-4ed4-8827-edfe3af62c43",
+              "uuid": "3c8f210d-0f1b-4295-a68f-5e146f2b5670",
+              "parentUUID": "9159e056-da7b-41f3-a6e7-f5bc158e480c",
               "isHook": false,
               "skipped": false
             },
@@ -692,7 +688,7 @@
               "title": "Deve listar todas as categorias disponíveis com sucesso",
               "fullTitle": "Catálogo de livros Deve listar todas as categorias disponíveis com sucesso",
               "timedOut": null,
-              "duration": 36,
+              "duration": 35,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -701,22 +697,22 @@
               "context": null,
               "code": "cy.api({\n  method: 'GET',\n  url: 'api/books/categories'\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "c86e2dfe-cbef-46d8-b9e5-8980d7fcd1f1",
-              "parentUUID": "e874c9bd-8549-4ed4-8827-edfe3af62c43",
+              "uuid": "ee58e166-28d3-4c26-85ba-9c738467fc5c",
+              "parentUUID": "9159e056-da7b-41f3-a6e7-f5bc158e480c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "aa20c29f-6705-4339-ad64-0c44a82c1aed",
-            "4d74d71d-4a9c-4f44-91d4-c9b71484130f",
-            "c86e2dfe-cbef-46d8-b9e5-8980d7fcd1f1"
+            "00a3f89b-f0a0-4b3f-8372-33cd3f55c0a6",
+            "3c8f210d-0f1b-4295-a68f-5e146f2b5670",
+            "ee58e166-28d3-4c26-85ba-9c738467fc5c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 175,
+          "duration": 172,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
