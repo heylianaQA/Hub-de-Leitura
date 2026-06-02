@@ -5,10 +5,16 @@
     "cypress-plugin-api": "^2.11.2"
   },
   "devDependencies": {
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
     "wait-on": "^9.0.4"
   },
   "scripts": {
     "test:api": "newman run tests-api/collection.json --env-var baseUrl=http://localhost:3000/api/",
-    "cy:run": "npx cypress run"
+    "cy:run": "npx cypress run",
+    "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/output.json",
+    "report:generate": "marge cypress/reports/output.json -f report -o cypress/reports",
+    "test:report": "npm run cy:run && npm run report:merge && npm run report:generate"
   }
 }

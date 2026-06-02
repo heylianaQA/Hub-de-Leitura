@@ -44,3 +44,12 @@ jobs:
 
       - name: Executar testes Cypress
         run: ./node_modules/.bin/cypress run
+
+      - name: Gerando o Relatorio
+        run: npm run report:merge && npm rum report:generate
+
+      - name: Deploy para o Github Pages
+        run: peaceiris/actions-gh-pages@v3
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: cypress/report
