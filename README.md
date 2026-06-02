@@ -2,7 +2,7 @@
 
 > Projeto de testes automatizados para o **Hub de Leitura**, uma plataforma de empréstimo de livros. Os testes cobrem os fluxos de Login, Cadastro, Catálogo/Busca de Livros e um fluxo E2E completo de empréstimo com criação de cadastro.
 
-![CI](https://github.com/heylianaQA/Hub-de-Leitura/actions/workflows/cypress.yml/badge.svg)
+![CI](https://github.com/heylianaQA/Hub-de-Leitura/actions/workflows/cypress.yaml/badge.svg)
 [![Relatório de Testes](https://img.shields.io/badge/Relatório-Mochawesome-blue?style=flat&logo=cypress)](https://heylianaqa.github.io/Hub-de-Leitura/)
 ![Cypress](https://img.shields.io/badge/Cypress-15.x-brightgreen?logo=cypress)
 ![BDD](https://img.shields.io/badge/BDD-Gherkin-success?logo=cucumber)
