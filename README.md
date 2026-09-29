@@ -78,7 +78,7 @@ hub-de-leitura/
 │   └── support/
 │       ├── commands.js
 │       └── e2e.js
-├── docs/
+├── documentos/
 │   ├── plano-de-teste.md
 │   ├── casos-de-teste.md
 │   └── relatorio-de-bugs.md
