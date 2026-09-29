@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2026-06-02T23:48:20.668Z",
-    "end": "2026-06-02T23:48:20.893Z",
-    "duration": 225,
+    "failures": 1,
+    "start": "2026-09-29T23:05:04.790Z",
+    "end": "2026-09-29T23:05:05.170Z",
+    "duration": 380,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "70a5078d-103a-4234-8e1c-402d9a1b77c3",
+      "uuid": "e3afa54a-bf95-4ba2-9f56-f2a4dca31f71",
       "title": "",
       "fullFile": "cypress/e2e/teste-API/gestao-usuarios.cy.js",
       "file": "cypress/e2e/teste-API/gestao-usuarios.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5ea072e0-c296-433e-b790-4648a3a71c7d",
+          "uuid": "e9bc9810-363f-4463-acdd-58778e2782b2",
           "title": "DELETE : Teste de API - Gestão de Usuários",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,33 @@
               "title": "Deve deletar usuário com sucesso",
               "fullTitle": "DELETE : Teste de API - Gestão de Usuários Deve deletar usuário com sucesso",
               "timedOut": null,
-              "duration": 190,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
+              "duration": 313,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "cy.api({\n  method: \"DELETE\",\n  url: `api/users/${deleteUser}`,\n  headers: {\n    Authorization: token\n  }\n}).should(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.message).to.equal(\"Usuário removido com sucesso.\");\n});",
-              "err": {},
-              "uuid": "615edc6e-9308-4012-9abf-1b75502ec0d8",
-              "parentUUID": "5ea072e0-c296-433e-b790-4648a3a71c7d",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/api/users/90\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: http://localhost:3000/api/users/90\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDQ0MTU0NCwiZXhwIjoxNzgwNDcwMzQ0fQ.kHwO1DYMquDAiC54CCywHiPHyumfuxw81sBuIxY2Z50\",\n  \"user-agent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.10.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"147\",\n  \"etag\": \"W/\\\"93-vFqc4vYufY8LpISKQqCZ+7INZJs\\\"\",\n  \"date\": \"Tue, 29 Sep 2026 23:05:04 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: {\n  \"message\": \"Token expirado\",\n  \"error\": \"EXPIRED_TOKEN\",\n  \"expiredAt\": \"2026-06-03T07:05:44.000Z\",\n  \"hint\": \"Faça login novamente para obter um novo token\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/api/users/90\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: http://localhost:3000/api/users/90\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBiaWJsaW90ZWNhLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4MDQ0MTU0NCwiZXhwIjoxNzgwNDcwMzQ0fQ.kHwO1DYMquDAiC54CCywHiPHyumfuxw81sBuIxY2Z50\",\n  \"user-agent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.10.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"147\",\n  \"etag\": \"W/\\\"93-vFqc4vYufY8LpISKQqCZ+7INZJs\\\"\",\n  \"date\": \"Tue, 29 Sep 2026 23:05:04 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: {\n  \"message\": \"Token expirado\",\n  \"error\": \"EXPIRED_TOKEN\",\n  \"expiredAt\": \"2026-06-03T07:05:44.000Z\",\n  \"hint\": \"Faça login novamente para obter um novo token\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:136431:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/teste-API/gestao-usuarios.cy.js:155:6)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122807:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122818:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:123069:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:146327:19)",
+                "diff": null
+              },
+              "uuid": "b91cb8a7-44ed-41cc-9609-c63b27cf72f9",
+              "parentUUID": "e9bc9810-363f-4463-acdd-58778e2782b2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "615edc6e-9308-4012-9abf-1b75502ec0d8"
+          "passes": [],
+          "failures": [
+            "b91cb8a7-44ed-41cc-9609-c63b27cf72f9"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 190,
+          "duration": 313,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

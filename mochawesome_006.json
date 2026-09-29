@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2026-06-02T23:48:23.751Z",
-    "end": "2026-06-02T23:48:24.078Z",
-    "duration": 327,
+    "start": "2026-09-29T23:05:08.145Z",
+    "end": "2026-09-29T23:05:08.464Z",
+    "duration": 319,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "5c613195-653b-496a-af03-52fad5cb74ca",
+      "uuid": "5f7cd181-ae8d-4193-a2f2-045f509e02d4",
       "title": "",
       "fullFile": "cypress/e2e/teste-API/reserva-de-livros.cy.js",
       "file": "cypress/e2e/teste-API/reserva-de-livros.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "88388436-fdfe-4e16-bddd-73a8f7e06a74",
+          "uuid": "503b06d4-3d7e-48e6-bcc8-443b551ee09a",
           "title": "Catálogo de livros",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve listar todos os livros disponíveis com sucesso",
               "fullTitle": "Catálogo de livros Deve listar todos os livros disponíveis com sucesso",
               "timedOut": null,
-              "duration": 88,
+              "duration": 86,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.api({\n  method: 'GET',\n  url: 'api/books'\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "96812046-bcd8-463f-a121-9f4d45bc5483",
-              "parentUUID": "88388436-fdfe-4e16-bddd-73a8f7e06a74",
+              "uuid": "8f0eaf3f-499b-4ad8-837c-2d8c3608d785",
+              "parentUUID": "503b06d4-3d7e-48e6-bcc8-443b551ee09a",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Deve listar todos os livros disponíveis na categoria Ficção",
               "fullTitle": "Catálogo de livros Deve listar todos os livros disponíveis na categoria Ficção",
               "timedOut": null,
-              "duration": 44,
+              "duration": 49,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.api({\n  method: 'GET',\n  url: 'api/books',\n  category: 'Ficção',\n  avaliable: 'true',\n  orderBy: 'title',\n  order: \"ASC\"\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "7a370001-6497-46f6-8619-fe842dc2f027",
-              "parentUUID": "88388436-fdfe-4e16-bddd-73a8f7e06a74",
+              "uuid": "058c9909-87e1-4f5c-a3e2-32af93259aae",
+              "parentUUID": "503b06d4-3d7e-48e6-bcc8-443b551ee09a",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Deve listar todas as categorias disponíveis com sucesso",
               "fullTitle": "Catálogo de livros Deve listar todas as categorias disponíveis com sucesso",
               "timedOut": null,
-              "duration": 40,
+              "duration": 33,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.api({\n  method: 'GET',\n  url: 'api/books/categories'\n}).should(response => {\n  expect(response.status).to.equal(200);\n});",
               "err": {},
-              "uuid": "475404e8-f2da-4ff9-a178-6c60e8688b66",
-              "parentUUID": "88388436-fdfe-4e16-bddd-73a8f7e06a74",
+              "uuid": "715d305e-a197-4fb8-a5a2-098ab648bd1d",
+              "parentUUID": "503b06d4-3d7e-48e6-bcc8-443b551ee09a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "96812046-bcd8-463f-a121-9f4d45bc5483",
-            "7a370001-6497-46f6-8619-fe842dc2f027",
-            "475404e8-f2da-4ff9-a178-6c60e8688b66"
+            "8f0eaf3f-499b-4ad8-837c-2d8c3608d785",
+            "058c9909-87e1-4f5c-a3e2-32af93259aae",
+            "715d305e-a197-4fb8-a5a2-098ab648bd1d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 172,
+          "duration": 168,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
